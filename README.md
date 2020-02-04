@@ -2,6 +2,9 @@
 
 This is an ASP .NET Core web service that listen to the Webhook service of GitHub on an organization's event. Whenever a repository's master branch is created then the web service would turn on the master branch protection. Afer the update is completed, then the web service would post an issue on the same repository to notify a specific user in the organization.
 
+For the listening part, I used the GitHub's WebHook service and Microsoft.AspNetCore.WebHooks.Receivers.GitHub library.
+For the setting up master branch protection and mentioning through raising an issue on the repository, I used Octokit for .NET.
+
 ## Supported Platform
 .NET Core 2.1 (WindowsOS/MacOS/Linux)
 
