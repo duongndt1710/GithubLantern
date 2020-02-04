@@ -1,0 +1,16 @@
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\GithubLantern.deps.json
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\GithubLantern.runtimeconfig.json
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\GithubLantern.runtimeconfig.dev.json
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\GithubLantern.dll
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\netcoreapp2.1\GithubLantern.csprojAssemblyReference.cache
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\netcoreapp2.1\GithubLantern.RazorAssemblyInfo.cache
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\netcoreapp2.1\GithubLantern.RazorAssemblyInfo.cs
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\netcoreapp2.1\GithubLantern.AssemblyInfoInputs.cache
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\netcoreapp2.1\GithubLantern.AssemblyInfo.cs
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\netcoreapp2.1\GithubLantern.RazorTargetAssemblyInfo.cache
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\GithubLantern.pdb
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\netcoreapp2.1\GithubLantern.dll
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\netcoreapp2.1\GithubLantern.pdb
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\appsettings.json
