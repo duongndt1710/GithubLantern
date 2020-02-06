@@ -4,7 +4,7 @@
 Protecting the master branch of a repository in your organization so that no irrevocable changes are made onto the master branch. Whenever a master branch is created on a repository, that master branch is vulnerable to these dangers. Therefore, I created a web service to automate the protection of the master branch whenever it is created on a repository of your organization. Then, notify a specific member in an issue with the corresponding repository.
 
 ## Supported Platform
-.NET Core 2.1 (WindowsOS/MacOS/Linux). Make sure you install this before running.
+ASP .NET Core 2.1 (WindowsOS/MacOS/Linux). Make sure you install this before running.
 
 
 ## Getting Started
