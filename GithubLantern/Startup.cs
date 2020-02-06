@@ -62,7 +62,12 @@ namespace GithubLantern
                 app.UseHsts();
             }
             // app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes =>
+                {routes.MapRoute(
+                    name: "default",
+                    template: "{controller=GitHub}/{action=Index}");
+                }
+            );
         }
     }
 }

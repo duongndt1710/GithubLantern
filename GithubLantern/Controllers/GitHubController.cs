@@ -19,28 +19,46 @@ namespace GithubLantern.Controllers {
             _setting = setting;
         }
 
+
+        public string Index()
+        {
+
+            string GitHubLanternOath = @"
+
+            In brightest day, in blackest night,
+            No strange merging shall escape my sight.
+            Let those who does pull request with no right
+            Beware my power--Github Lantern's light!";
+
+            return GitHubLanternOath;
+        }
+
         [GitHubWebHook]
         public IActionResult GitHubHandler (string id, string @event, JObject data) {
             if (!ModelState.IsValid) {
                 return BadRequest (ModelState);
             }
 
-            if (@event.Trim().Equals("create"))
-            {
+            var result = JObject.FromObject (data).ToObject<Dictionary<string, object>> ();
 
-                // Intepreting the values acquiring from data and put into a dictionary type
-                var result = JObject.FromObject (data).ToObject<Dictionary<string, object>>();
+            if (@event.Trim().Equals("repository")) {
+                // A repository was created
+
+                if (result["action"].ToString().Equals("created"))
+                {
+                    ExecuteProtection(result);
+                }
+
+
+            }
+            else if (@event.Trim().Equals("create"))
+            {
+                // When the master branch was created 
 
                 if (result["ref"].ToString().Equals("master") 
                         &&  result["ref_type"].ToString().Equals("branch"))
                 {
-                    // get repository name
-                    string orgNm = (JObject.FromObject(result["organization"]).ToObject<Dictionary<string, object>>())["login"].ToString();
-
-                    // get repository ID
-                    long repoID = long.Parse((JObject.FromObject (result["repository"]).ToObject<Dictionary<string, object>>())["id"].ToString());
-
-                    ExecuteProtection(orgNm, repoID);
+                    ExecuteProtection(result);
                 }
 
             }
@@ -53,8 +71,14 @@ namespace GithubLantern.Controllers {
         /// </summary>
         /// <param name="orgNm">Organization Name</param>
         /// <param name="id">Repository ID</param>
-        private async void ExecuteProtection(string orgNm, long id)
+        private async void ExecuteProtection(Dictionary<string, object> result)
         {
+
+            // get repository name
+            string orgNm = (JObject.FromObject(result["organization"]).ToObject<Dictionary<string, object>>())["login"].ToString();
+
+            // get repository ID
+            long id = long.Parse((JObject.FromObject (result["repository"]).ToObject<Dictionary<string, object>>())["id"].ToString());
 
             // Login
             Credentials cre = new Credentials(_setting.Value.Email, _setting.Value.Pwd);
@@ -63,20 +87,25 @@ namespace GithubLantern.Controllers {
 
             // Check for branches amount
             var repoBranches = await ghc.Repository.Branch.GetAll(id);
-            if (repoBranches.Count > 0)
+            if (repoBranches.Count > 0) // Check if there is at least a branch
             {
                 // get the master branch
                 var master = repoBranches.Where(br => br.Name.Equals("master")).FirstOrDefault();
                 
-                // set protection
-                BranchProtectionRequiredReviewsUpdate bprru = new BranchProtectionRequiredReviewsUpdate(true, true, 1);
-                BranchProtectionSettingsUpdate Setting = new BranchProtectionSettingsUpdate(bprru);
-                await ghc.Repository.Branch.UpdateBranchProtection(id, "master", Setting);
+                if (!master.Protected)
+                {
+                    // set protection
+                    BranchProtectionRequiredReviewsUpdate bprru = new BranchProtectionRequiredReviewsUpdate(true, true, 1);
+                    BranchProtectionSettingsUpdate Setting = new BranchProtectionSettingsUpdate(bprru);
+                    await ghc.Repository.Branch.UpdateBranchProtection(id, "master", Setting);
 
-                // mentioning oneself
-                var ic = ghc.Issue;
-                var newIssue = new NewIssue("Master Branch Protection Validation") { Body = "Hi @" + _setting.Value.MentionAccount + " , Please check if the master branch protection is valid!"};
-                var issue = await ic.Create(id, newIssue);
+                    // mentioning oneself
+                    var ic = ghc.Issue;
+                    var newIssue = new NewIssue("Master Branch Protection Validation") { Body = "Hi @" + _setting.Value.MentionAccount + " , Please check if the master branch protection is valid!"};
+                    var issue = await ic.Create(id, newIssue);
+                }
+
+                
             }
         }
     }

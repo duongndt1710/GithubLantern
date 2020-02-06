@@ -14,3 +14,5 @@ C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\net
 C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\obj\Debug\netcoreapp2.1\GithubLantern.pdb
 C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\appsettings.Development.json
 C:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\appsettings.json
+c:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\BKsetting\appsettings.Development.json
+c:\Jake\Work\NetProduct\NetCore\Github\GithubLantern\GithubLantern\bin\Debug\netcoreapp2.1\BKsetting\appsettings.json
