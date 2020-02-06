@@ -42,4 +42,4 @@ You are ready to go!
 
 
 ## Reference
-For accessing GitHub API: [Octokit for .NET](https://github.com/octokit/octokit.net)
+For accessing GitHub API with .NET or .NET Core: [Octokit for .NET](https://github.com/octokit/octokit.net)
